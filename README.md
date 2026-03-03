@@ -1,3 +1,3 @@
 # Make Recipe from ingredient by using AI
 
-- ongoing project
+- ongoing project (Almost Finished)
