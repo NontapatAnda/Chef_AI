@@ -4,7 +4,7 @@ import ClaudeRecipe from "./ClaudeRecipe"
 import { getRecipeFromLlama} from "../../ai" 
 
 export default function Main() {
-    const [ingredient,setIngredient] = useState(["all the main spices", "pasta", "ground beef", "tomato paste"])
+    const [ingredient,setIngredient] = useState([])
     const [recipe,setRecipe] = useState("")
 
 
