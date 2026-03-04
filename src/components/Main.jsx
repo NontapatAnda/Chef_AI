@@ -1,15 +1,12 @@
 import { useState } from "react"
+import IngredientsList from "./IngredientsList"
+import ClaudeRecipe from "./ClaudeRecipe"
 
 export default function Main() {
     const [ingredient,setIngredient] = useState(["all the main spices", "pasta", "ground beef", "tomato paste"])
     const [recipeShown,setRecipe] = useState(false)
 
 
-    const ingredientLists = ingredient.map(ingredient => (
-        <li key={ingredient}>{ingredient}</li>
-
-
-    ))
 
     function addIngredient(formData){
         const newingredient = formData.get("ingredient")
@@ -32,21 +29,10 @@ export default function Main() {
                  />
                  <button>Add Ingredient</button>
             </form>
-            {ingredient.length > 0 ?
-          <section>
-                <h2>Ingredients on hand:</h2>
-                <ul className="ingredients-list" aria-live="polite">{ingredientLists}</ul>
-                {ingredient.length > 3 && <div className="get-recipe-container">
-                    <div>
-                        <h3>Ready for a recipe?</h3>
-                        <p>Generate a recipe from your list of ingredients.</p>
-                    </div>
-                    <button onClick={toggleRecipe}>Get a recipe</button>
-                </div>
-                }
-            </section> : <h2>No ingredients added yet.</h2>
-            }
-            {recipeShown && <h1>Recipe Generator bla bla bla</h1>}
+            {ingredient.length > 0 && <IngredientsList ingredient={ingredient} toggleRecipe={toggleRecipe}/>}
+      
+            
+            {recipeShown && <ClaudeRecipe />}
        
         </main>
     )
